@@ -1,5 +1,4 @@
 import fs from 'fs'
-import { arrayBuffer } from 'stream/consumers';
 
 const inputDataLinesIntegers = (filename = "input.txt") => {
     return fs.readFileSync(filename).toString().trim().replaceAll(" -> ", ",").split("\n").map(e => e.split(",").map(e => parseInt(e)));
