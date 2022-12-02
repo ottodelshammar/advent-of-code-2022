@@ -6,7 +6,8 @@ const inputDataLinesIntegers = (filename = "input.txt") => {
 
 const getSolutionPart1 = () => {
     var score = 0;
-    inputDataLinesIntegers().forEach(e => {
+    const input = inputDataLinesIntegers()
+    input.forEach(e => {
         if (e[1] == 'X') {
             score += 1
             if (e[0] == 'A') {
@@ -35,7 +36,8 @@ const getSolutionPart1 = () => {
 
 const getSolutionPart2 = () => {
     var score = 0;
-    inputDataLinesIntegers().forEach(e => {
+    const input = inputDataLinesIntegers()
+    input.forEach(e => {
         if (e[1] == 'X') {
             if (e[0] == 'A') {
                 score += 3;
