@@ -14,32 +14,23 @@ const containsDuplicates = (array) => {
     return result;
 }
 
-const getSolutionPart1 = () => {
+const findMarker = (width) => {
     const characters = inputDataLinesIntegers();
-    var marker = [];
-    var index = 0;
     for (let i = 0; i < characters.length; i++) {
-        marker = [characters[0 + i], characters[1 + i], characters[2 + i], characters[3 + i]];
-        if (!containsDuplicates(marker)) {
-            index = i;
+        if (!containsDuplicates(characters.slice(i, i+width))) {
+            var index = i;
             break;
         }
     }
-    return index + 4;
+    return index + width;
+}
+
+const getSolutionPart1 = () => {
+    return findMarker(4);
 }
 
 const getSolutionPart2 = () => {
-    const characters = inputDataLinesIntegers();
-    var marker = [];
-    var index = 0;
-    for (let i = 0; i < characters.length; i++) {
-        marker = [characters[0 + i], characters[1 + i], characters[2 + i], characters[3 + i], characters[4 + i], characters[5 + i], characters[6 + i], characters[7 + i], characters[8 + i], characters[9 + i], characters[10 + i], characters[11 + i], characters[12 + i], characters[13 + i]];
-        if (!containsDuplicates(marker)) {
-            index = i;
-            break;
-        }
-    }
-    return index + 14;
+    return findMarker(14);
 }
 
 console.log("Javascript")
