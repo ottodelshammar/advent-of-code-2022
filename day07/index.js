@@ -9,7 +9,8 @@ function Directory(name, size) {
     this.name = name;
 }
 
-const readInput = (input) => {
+const readInput = () => {
+    const input = inputDataLinesIntegers();
     const allDriectories = [];
     const currentDirectoryStack = [];
     input.forEach(command => {
@@ -37,15 +38,12 @@ const readInput = (input) => {
 
 
 const getSolutionPart1 = () => {
-    const input = inputDataLinesIntegers();
     return readInput(input).filter(dir => dir.size < 100000).reduce((a, b) => a + b.size, 0);
 }
 
 const getSolutionPart2 = () => {
-    const input = inputDataLinesIntegers();
-    const directories = readInput(input).sort((a, b) => b.size - a.size)
-    const requiredMemory = 30000000 - (70000000 - directories[0].size);
-    return directories.filter(e => e.size > requiredMemory).pop().size
+    const directories = readInput().sort((a, b) => b.size - a.size)
+    return directories.filter(e => e.size > (30000000 - (70000000 - directories[0].size))).pop().size
 }
 
 console.log("Javascript")
